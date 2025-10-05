@@ -1,0 +1,185 @@
+
+@font-face {
+    font-family: "SVN Batman Forever Alternate";
+    src: url("/fonts/SVN-Batman_Forever_Alternate.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    .font-batman {
+      font-family: "SVN Batman Forever Alternate", system-ui, sans-serif;
+    }
+  }
+
+  /* @layer base {
+    html { @apply font-batman; }
+  } */
+  .backface-hidden { backface-visibility: hidden; }
+  .will-change-transform { will-change: transform; }
+  
+  @layer utilities {
+    /* Nghiêng trái → giữ → nghiêng phải → giữ ở giữa → nghiêng trái → lặp */
+    @keyframes left-right-attn {
+      /* trái (giữ) */
+      0%   { transform: rotate(-7deg) translateZ(0); }
+      18%  { transform: rotate(-7deg) translateZ(0); }
+  
+      /* sang phải (giữ) */
+      38%  { transform: rotate(7deg) translateZ(0); }
+      56%  { transform: rotate(7deg) translateZ(0); }
+  
+      /* về giữa (giữ) */
+      70%  { transform: rotate(0deg) translateZ(0); }
+      82%  { transform: rotate(0deg) translateZ(0); }
+  
+      /* trở lại trái để bắt đầu chu kỳ mới */
+      100% { transform: rotate(-7deg) translateZ(0); }
+    }
+  
+    .animate-left-right-attn {
+      animation: left-right-attn 4s cubic-bezier(.4,0,.2,1) infinite;
+      transform-origin: center;
+    }
+  }
+  @layer utilities {
+    /* pill: bo tròn cả hai bên */
+    .chip-pill { border-radius: 9999px; clip-path: inset(0 round 9999px); }
+  
+    /* slant-right: bo trái, CẮT XÉO PHẲNG bên phải */
+    .chip-slant-right {
+      --slant: 18px; --radius: 9999px;
+      border-top-left-radius: var(--radius);
+      border-bottom-left-radius: var(--radius);
+      clip-path: polygon(0 0, calc(100% - var(--slant)) 0, 100% 100%, 0 100%);
+    }
+  
+    /* slant-left: bo phải, CẮT XÉO PHẲNG bên trái */
+    .chip-slant-left {
+      --slant: 18px; --radius: 9999px;
+      border-top-right-radius: var(--radius);
+      border-bottom-right-radius: var(--radius);
+      clip-path: polygon(var(--slant) 0, 100% 0, 100% 100%, 0 100%);
+    }
+  }
+  .icon-center > svg {
+    width: 100%;
+    height: 100%;
+    display: 100%;
+    vertical-align: middle;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  @keyframes scalePulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+  
+  .scale-pulse {
+    display: inline-block; /* cần để transform hoạt động đúng */
+    animation: scalePulse 2s ease-in-out infinite;
+  }
+
+  @keyframes bounceLight {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px); /* 👈 chỉnh độ cao nhảy */
+    }
+  }
+  
+  .bounce-light {
+    display: inline-block; /* cần để transform hoạt động đúng */
+    animation: bounceLight 1.5s ease-in-out infinite;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  
+/* Hiệu ứng ánh sáng chéo chạy */
+.shine-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-sweep::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -33%;
+  width: 45%;
+  height: 300%;
+  transform: rotate(30deg) translateX(-140%);
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.45) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  pointer-events: none;
+  animation: sweep 1.8s linear infinite;
+}
+
+/* Keyframes quét ngang */
+@keyframes sweep {
+  from { transform: rotate(12deg) translateX(-140%); }
+  to   { transform: rotate(12deg) translateX(220%); }
+}
+
+/* Tuỳ chọn: các biến thể tốc độ / cường độ */
+.shine-slow::after   { animation-duration: 2.8s; }
+.shine-fast::after   { animation-duration: 1.8s; }
+.shine-strong::after { background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.65), rgba(255,255,255,0)); }
+.shine-soft::after   { background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.25), rgba(255,255,255,0)); }
+
+
+
+@keyframes orbit-pause {
+  0%   { transform: rotate(0deg); }
+  80%  { transform: rotate(360deg); }
+  100% { transform: rotate(360deg); } /* giữ nguyên 20% thời lượng */
+}
+
+.scale-animate {
+  --s-min: .92;   /* thu nhỏ tối đa */
+  --s-max: 1.06;  /* phóng to tối đa */
+  transform-origin: center;
+  will-change: transform;
+  animation: scalePulse2 1.6s cubic-bezier(.4,0,.2,1) infinite alternate;
+}
+
+@keyframes scalePulse2 {
+  from { transform: scale(var(--s-min)); }
+  to   { transform: scale(var(--s-max)); }
+}
+
+/* Tôn trọng người dùng giảm chuyển động */
+@media (prefers-reduced-motion: reduce) {
+  .scale-animate { animation: none; }
+}
