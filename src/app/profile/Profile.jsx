@@ -149,7 +149,7 @@ const Profile = () => {
           <div className='w-full flex flex-col gap-2  '>
             <span className='font-medium'>History Claimed</span>
 
-            <div className='h-[calc(100vh-520px)] overflow-y-scroll space-y-2 mt-2'>
+            <div className='h-[calc(100vh-460px)] overflow-y-scroll space-y-2 mt-2'>
               {transactions.map((value, index) => {
                 return <TransactionItem key={index} value={value}/>
               })}

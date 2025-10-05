@@ -19,26 +19,26 @@ export const BottomTab = () => {
   };
 
   const tabs = [
-    { value: routes.Home, label: "Home",     icon: <BiHome className="text-2xl" />,       path: routes.Home },
-    { value:routes.Showroom, label: "Showroom", icon: <IoBag className="text-2xl" />,        path: routes.Showroom },
-    { value: routes.Mission, label: "Mission",  icon: <MdPlayLesson className="text-2xl" />, path: routes.Mission },
-    { value:routes.Referral, label: "Referral", icon: <FaGift className="text-2xl" />,       path: routes.Referral },
-    { value: routes.Profile, label: "Profile",  icon: <BiUser className="text-2xl" />,       path: routes.Profile },
+    { value: routes.Home, label: "Home",     icon: <BiHome className="text-xl" />,       path: routes.Home },
+    { value:routes.Showroom, label: "Showroom", icon: <IoBag className="text-xl" />,        path: routes.Showroom },
+    { value: routes.Mission, label: "Mission",  icon: <MdPlayLesson className="text-xl" />, path: routes.Mission },
+    { value:routes.Referral, label: "Referral", icon: <FaGift className="text-xl" />,       path: routes.Referral },
+    { value: routes.Profile, label: "Profile",  icon: <BiUser className="text-xl" />,       path: routes.Profile },
   ];
 
   return (
-    <div className="grid grid-cols-5 fixed bottom-0 w-full bg-gray-100 p-2 z-[1000] left-0 h-[76px]">
+    <div className="grid grid-cols-5 fixed bottom-0 w-full bg-gray-100 p-2 z-[1000] left-0 h-[50px]">
       {tabs.map((tab) => {
         const active = tabBottom === tab.value;
         return (
           <button
             key={tab.value}
-            className={`flex flex-col items-center justify-center rounded-lg py-2 transition
-                       ${active ? "bg-blue-500 text-white" : "text-gray-600 hover:bg-gray-200"}`}
+            className={`flex flex-col items-center justify-center rounded-lg py-1 transition
+                       ${active ? " text-blue-600" : "text-gray-600 hover:bg-gray-200"}`}
             onClick={handleTab(tab.value, tab.path)}
           >
-            <span className={active ? "text-white" : "text-gray-500"}>{tab.icon}</span>
-            <span className={`text-sm ${active ? "text-white" : "text-gray-600"}`}>
+            <span className={active ? "text-blue-600" : "text-gray-500"}>{tab.icon}</span>
+            <span className={`text-xs ${active ? "text-blue-600" : "text-gray-600"}`}>
               {tab.label}
             </span>
           </button>

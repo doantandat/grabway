@@ -9,7 +9,7 @@ const ButtonAcceleration = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className='flex flex-col gap-2'>
+    <div className='flex flex-col '>
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} >
 
         <div className="flex flex-col justify-center items-center gap-6">

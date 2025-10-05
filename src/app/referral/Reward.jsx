@@ -24,7 +24,7 @@ const Reward = () => {
                     </span>
                 </div>
 
-                <div className='h-[calc(100vh-520px)] overflow-y-scroll space-y-2 mt-2'>
+                <div className='h-[calc(100vh-490px)] overflow-y-scroll space-y-2 mt-2'>
                     {itemsReward.map((value, index) => {
                         return <div key={index} className='grid grid-cols-2 h-[100px] gap-2'>
                             <div className='bg-white/80 rounded-md border border-gray-400  flex flex-col justify-center items-center '>

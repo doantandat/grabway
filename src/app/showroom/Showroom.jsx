@@ -40,7 +40,7 @@ const Showroom = () => {
         
 
         </div>
-        <div className='overflow-y-scroll px-4 gap-2 h-[calc(100vh-200px)]'>
+        <div className='overflow-y-scroll px-4 gap-2 h-[calc(100vh-160px)]'>
           {itemsCard.map((value, index) => {
             return <CardPack key={index} item={value} />
 

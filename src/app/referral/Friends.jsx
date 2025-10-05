@@ -40,7 +40,7 @@ const Friends = () => {
 
           </div>
           
-        <div className='h-[calc(100vh-520px)] overflow-y-scroll w-full'>
+        <div className='h-[calc(100vh-490px)] overflow-y-scroll w-full'>
          
           {itemsFriend.map((value, index) => {
                         return  <div key={index} className='grid grid-cols-6 bg-white/80 h-[30px] hover:bg-gray-300'>

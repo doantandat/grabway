@@ -56,7 +56,7 @@ const Garage = () => {
       </Modal>
       <div className='absolute w-full h-full z-0  inset-0 bg-gradient-to-b from-black/50  to-transparent '></div>
       <Link className='absolute z-[99] top-2 left-2' to={routes.Home}><FaAngleDoubleLeft className='text-5xl text-white' /></Link>
-      <div className='relative z-50 flex gap-1 flex-col w-full justify-center items-center pt-4 
+      <div className='relative z-50 flex gap-1 flex-col w-full justify-center items-center pt-1
       inset-0 bg-gradient-to-b from-black/90 via-black/60 to-transparent'>
         <span className='text-green-600 font-bold italic text-sm'>GRABWAY</span>
         <TextGlowTitle text={"GRABWAY"} />
@@ -67,16 +67,16 @@ const Garage = () => {
           <span className='text-yellow-400 text-base font-bold'>NFT ID: free</span>
         </div>
 
-        <div className='flex flex-col w-full justify-center items-center px-4 py-2'>
+        <div className='flex flex-col w-full justify-center items-center px-4'>
 
           <div className='grid grid-cols-3 w-full font-medium'>
-            <div className='flex gap-2 items-center justify-center'>
+            <div className='flex  items-center justify-center'>
               <ButtonPower />
             </div>
-            <div className='flex gap-2 items-center  justify-center'>
+            <div className='flex  items-center  justify-center'>
               <ButtonAcceleration />
             </div>
-            <div className='flex gap-2 items-center justify-center'>
+            <div className='flex  items-center justify-center'>
               <ButtonNitro />
             </div>
           </div>
@@ -95,7 +95,7 @@ const Garage = () => {
           </div>
 
         </div>
-        <div className='flex flex-col w-full justify-center items-center px-8 mt-4'>
+        <div className='flex flex-col w-full justify-center items-center px-8 mt-2'>
           <button className='w-[80%] flex justify-between items-center rounded-full h-[30px] border border-white  bg-gradient-to-r from-black to-70% via-gray-400   to-green-400' onClick={() => setIsOpen(true)}>
             <div className=''><img src={Coin} alt="" className='h-full object-contain' /></div>
             <div className='text-yellow-400 font-bold text-xl'>0</div>
@@ -113,7 +113,7 @@ const Garage = () => {
       />
 
 
-      <div className='flex flex-col justify-center items-center w-full gap-1 p-4 absolute bottom-0 '>
+      <div className='flex flex-col justify-center items-center w-full  p-2 absolute bottom-0 '>
         <div className='flex  w-[80%] justify-center items-center px-4 py-2 gap-2'>
           <ColorSlider value={draftTint ?? savedTint} onChange={setDraftTint} />
           <SkewButton
@@ -128,35 +128,35 @@ const Garage = () => {
 
           </SkewButton>
         </div>
-        <div className='flex flex-col w-full justify-center items-center px-4 py-2'>
-          <button className='w-[80%] flex justify-between items-center rounded-full h-[30px] border border-white 
+        <div className='flex flex-col w-full justify-center items-center px-4 '>
+          <button className='w-[80%] flex justify-between items-center rounded-full h-[28px] border border-white 
       bg-gradient-to-r from-yellow-300/20  via-gray-400/0   to-yellow-300/20
      '>
-            <div className='-ml-2'>   <img src={Bttnl} alt='' className='h-full object-contain ' /></div>
-            <div className='text-yellow-400 font-bold text-base flex gap-2'><img src={Coin} alt="" className='h-full object-contain' /> 0.05 Gpoints / Hou</div>
+            <div className='-ml-2'>   <img src={Bttnl} alt='' className='h-[40px] object-contain ' /></div>
+            <div className='text-yellow-400 font-bold text-base flex gap-2 items-center w-full'><img src={Coin} alt="" className='h-[28px] object-contain' /> 0.05 Gpoints / Hou</div>
             <div className='-mr-2 relative'>
-              <img src={Bttn} alt='' className='h-full object-contain' />
+              <img src={Bttn} alt='' className='h-[40px] object-contain' />
             </div>
           </button>
         </div>
         <div className='flex flex-col w-full justify-center items-center px-4 py-2'>
-          <div className=" w-[120px] h-[72px] relative   bg-gradient-to-tr from-sky-500 to-sky-500/50 to-90% bg-clip-padding p-[1px] ">
+          <div className=" w-[100px] h-[60px] relative   bg-gradient-to-tr from-sky-500 to-sky-500/50 to-90% bg-clip-padding p-[1px] ">
             <div className="bg-gradient-to-tr from-black to-black/50 to-90% w-full h-full  flex flex-col justify-center items-center">
               <StarRating rate={3} className={"!text-[8px]"} />
-              <img src={Item} alt="" className="w-14 object-contain" />
-              <div className="w-[14px] h-[14px] rounded-[3px] bg-green-500 
+              <img src={Item} alt="" className="w-12 object-contain" />
+              <div className="w-[12px] h-[12px] rounded-[3px] bg-green-500 
                           [clip-path:polygon(20%_55%,40%_75%,80%_30%,90%_40%,40%_88%,10%_62%)]" />
             </div>
           </div>
         </div>
         <div className='flex w-full gap-2  items-center '>
-        <ButtonClaim/>
-          <SkewButton className='bg-blue-500  border border-white flex w-1/2 text-xs items-center justify-center gap-2 !px-2  h-full shine-sweep shine-strong shine-fast'
-          
-          onClick={()=>toast.success("Set main car successfully")}
+          <ButtonClaim />
+          <SkewButton className='bg-blue-500   border border-white flex w-1/2 text-xs items-center justify-center gap-2 !px-2  h-full shine-sweep shine-strong shine-fast'
+
+            onClick={() => toast.success("Set main car successfully")}
           >
-            <span className='uppercase'>Set main car</span></SkewButton>
-         <ButtonInspect/>
+            <span className='uppercase text-[10px] '>Set main car</span></SkewButton>
+          <ButtonInspect />
         </div>
       </div>
     </div>
